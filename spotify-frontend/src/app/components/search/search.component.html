@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="form-group">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <input name="album" ngModel required #first="ngModel" class="search">
+            <button type="submit" class="search">BUSCAR</button>
+         </form>       
+      </div>
+      <ul>
+        <li *ngFor="let album of albums">
+            <app-album [album]="album"></app-album>
+        </li>
+      </ul>
+      <div *ngIf = "isLoading">
+        <app-atom-spinner
+            [animationDuration]="1000"
+            [size]="100"
+            [color]="'#1db954'">
+        </app-atom-spinner>
+    </div>
+</div>
